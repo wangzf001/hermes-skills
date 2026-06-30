@@ -59,17 +59,12 @@ hermes config set model.default deepseek-v4-pro 2>/dev/null
 hermes config set model.provider deepseek 2>/dev/null
 echo "  ✅ DeepSeek Pro 配置完成"
 
-# ── Step 4: 配置微信连接 ──
+# ── Step 4: 微信（跳过，你自己控制）──
 echo ""
-echo "📦 [4/6] 配置微信连接..."
-echo "  在 Hermes 中执行: hermes setup weixin"
-echo "  扫码后即可在微信中使用 Hermes"
-echo ""
-read -p "  是否现在启动微信配置？(y/n) " -n 1 -r
-echo ""
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    hermes setup weixin 2>/dev/null || echo "  ⚠️ 请手动执行: hermes setup weixin"
-fi
+echo "📦 [4/6] 微信连接 — 跳过"
+echo "  由你决定何时连接。需要时在 Hermes 中执行:"
+echo "    hermes gateway setup"
+echo "  选择 Weixin，扫码即可。"
 
 # ── Step 4: 创建知识库目录 ──
 echo ""

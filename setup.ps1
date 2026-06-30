@@ -73,16 +73,12 @@ hermes config set model.default deepseek-v4-pro 2>$null
 hermes config set model.provider deepseek 2>$null
 Write-Host "  ✅ DeepSeek Pro 配置完成" -ForegroundColor Green
 
-# ── Step 4: 配置微信连接 ──
+# Step 4: 微信（跳过，你自己控制）
 Write-Host ""
-Write-Host "📦 [4/6] 配置微信连接..." -ForegroundColor Yellow
-Write-Host "  在 Hermes 中执行: hermes gateway setup" -ForegroundColor White
-Write-Host "  选择 Weixin 平台，扫码后即可在微信中使用" -ForegroundColor White
-Write-Host ""
-$setupWechat = Read-Host "  是否现在启动微信配置？(y/n)"
-if ($setupWechat -eq "y") {
-    hermes gateway setup 2>$null
-}
+Write-Host "📦 [4/6] 微信连接 — 跳过" -ForegroundColor Yellow
+Write-Host "  由你决定何时连接。需要时在 Hermes 中执行:" -ForegroundColor White
+Write-Host "    hermes gateway setup" -ForegroundColor Cyan
+Write-Host "  选择 Weixin，扫码即可。" -ForegroundColor White
 
 # ── Step 5: 创建知识库 ──
 Write-Host ""
