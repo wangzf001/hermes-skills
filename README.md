@@ -6,21 +6,9 @@
 
 ## 快速开始
 
-**macOS：**
-```bash
-curl -sSL https://raw.githubusercontent.com/wangzf001/hermes-skills/main/setup.sh | bash
-```
+→ **[人工搭建指南 (SETUP.md)](SETUP.md)** — macOS / Windows 分步教程
 
-**Windows（PowerShell）：**
-```powershell
-# 1. 先安装 Hermes → https://hermes-agent.nousresearch.com/docs/
-# 2. 克隆并运行部署脚本
-git clone https://github.com/wangzf001/hermes-skills.git
-cd hermes-skills
-powershell -ExecutionPolicy Bypass -File setup.ps1
-```
-
-> 💡 **AMD/Intel 都可以。** Hermes 只运行一个 Python 命令行工具，模型推理在 DeepSeek 云端，不依赖本地 GPU。
+> 💡 **AMD/Intel 都可以。** Hermes 只运行 Python 命令行工具，推理在云端。
 
 部署完成后，在微信里对 Hermes 说「基金经理，展示能力」测试。
 
