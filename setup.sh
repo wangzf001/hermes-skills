@@ -42,9 +42,26 @@ cp -r "${SKILLS_DIR}/skills/"* "${HERMES_HOME}/skills/" 2>/dev/null || true
 cp -r "${SKILLS_DIR}/framework/"* "${HERMES_HOME}/skills/" 2>/dev/null || true
 echo "  ✅ 技能安装完成"
 
-# ── Step 3: 配置微信连接 ──
+# ── Step 3: 配置模型 ──
 echo ""
-echo "📦 [3/5] 配置微信连接..."
+echo "📦 [3/5] 配置 DeepSeek Pro..."
+if grep -q "DEEPSEEK_API_KEY" "${HERMES_HOME}/.env" 2>/dev/null; then
+    echo "  ✅ DeepSeek API Key 已配置"
+else
+    echo "  ⚠️  需要 DeepSeek API Key"
+    echo "  获取地址: https://platform.deepseek.com/api_keys"
+    read -p "  请输入 DeepSeek API Key: " DEEPSEEK_KEY
+    echo "DEEPSEEK_API_KEY=${DEEPSEEK_KEY}" >> "${HERMES_HOME}/.env"
+    echo "  ✅ API Key 已保存"
+fi
+echo "  设置默认模型为 deepseek-v4-pro..."
+hermes config set model.default deepseek-v4-pro 2>/dev/null
+hermes config set model.provider deepseek 2>/dev/null
+echo "  ✅ DeepSeek Pro 配置完成"
+
+# ── Step 4: 配置微信连接 ──
+echo ""
+echo "📦 [4/6] 配置微信连接..."
 echo "  在 Hermes 中执行: hermes setup weixin"
 echo "  扫码后即可在微信中使用 Hermes"
 echo ""
@@ -56,7 +73,7 @@ fi
 
 # ── Step 4: 创建知识库目录 ──
 echo ""
-echo "📦 [4/5] 创建知识库目录..."
+echo "📦 [5/6] 创建知识库目录..."
 KB_DIR="${HOME}/Documents/obsidian_projects/知识体系库"
 mkdir -p "${KB_DIR}/wiki" "${KB_DIR}/raw" "${KB_DIR}/.obsidian"
 
