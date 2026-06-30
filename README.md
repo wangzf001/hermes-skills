@@ -7,13 +7,17 @@
 ## 快速开始
 
 ```bash
-# 1. 克隆到新机器的 Hermes 技能目录
-git clone https://github.com/wangzf001/hermes-skills.git
-cp -r hermes-skills/skills/* ~/.hermes/skills/
+# 一键部署（macOS）
+curl -sSL https://raw.githubusercontent.com/wangzf001/hermes-skills/main/setup.sh | bash
 
-# 2. 重启 Hermes，技能自动加载
-# 3. 说 "基金经理，分析胜宏科技" 测试
+# 或手动：
+git clone https://github.com/wangzf001/hermes-skills.git
+cd hermes-skills && bash setup.sh
 ```
+
+部署完成后，在微信里对 Hermes 说「基金经理，展示能力」测试。
+
+> 💡 **建议：日常用语音沟通，不需要打字。** 语音降低了使用门槛，提升了交互频率——这是搭建 AI 能力系统的实用技巧。
 
 ---
 
